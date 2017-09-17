@@ -20,3 +20,10 @@ for (var number = 5 ; number > 0; number--) {
 for (var stoppedTrain = trainsOperational + 1; stoppedTrain <= totalTrains; stoppedTrain++) {
   console.log("Train #" + stoppedTrain + " is not running today.");
 }
+for (var trainNumber = 1; trainNumber <= totalTrains; trainNumber++) {
+  if (trainNumber <= trainsOperational) {
+    console.log("Train #" + trainNumber + " is operating.")
+  } else {
+    console.log("Train #" + trainNumber + " is not operational.");
+  }
+}
