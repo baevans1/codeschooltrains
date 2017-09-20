@@ -109,3 +109,36 @@ var arrayOfArrays = [comboArray1, comboArray2];
 console.log(arrayOfArrays);
 console.log(arrayOfArrays[1]);
 console.log(arrayOfArrays[1][2]);
+
+var numberList = [2, 5, 8, 4, 7, 12, 6, 9, 3, 11];
+for (var i = 0; i < numberList.length; i++) {
+    console.log("The value in cell " + i + " is " + numberList[i]);
+}
+// numberList[5]=undefined;
+
+var evenCount = 0;
+  for (var i = 0; i < numberList.length; i++) {
+   if (numberList[i] % 2 == 0) {
+     evenCount++;
+   } else {
+     numberList[i] = undefined;
+   }
+  }
+  console.log(evenCount);
+  console.log(numberList);
+
+function addPassenger (passengerName, passengerArray) {
+    if (passengerArray.length == 0) {
+      passengerArray.push(passengerName);
+    } else {
+      for (var i = 0; i < passengerArray.length; i++) {
+        if (passengerArray[i] == undefined) {
+          passengerArray[i] = passengerName;
+          return passengerArray;
+        } else if (i == passengerArray.length -1 ) {
+          passengerArray.push(passengerName);
+          return passengerArray;
+        }
+      }
+    }
+}
