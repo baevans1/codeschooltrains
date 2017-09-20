@@ -104,3 +104,8 @@ var poisson = "fish";
 var comboArray2 = ["red", poisson, "Blue", poisson];
 console.log(comboArray2);
 console.log(poisson);
+
+var arrayOfArrays = [comboArray1, comboArray2];
+console.log(arrayOfArrays);
+console.log(arrayOfArrays[1]);
+console.log(arrayOfArrays[1][2]);
