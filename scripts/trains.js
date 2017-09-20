@@ -142,3 +142,30 @@ function addPassenger (passengerName, passengerArray) {
       }
     }
 }
+var passengerList = [];
+addPassenger("Bethy Sevans", passengerList);
+console.log(passengerList);
+addPassenger("Love Newton", passengerList);
+console.log(passengerList);
+addPassenger("Cam Broon", passengerList);
+console.log(passengerList);
+function deletePassenger (passengerName, passengerArray) {
+    if(passengerArray.length ==0){
+      console.log("list is empty");
+    } else {
+        for (var i = 0; i < passengerArray.length; i++) {
+            if (passengerArray[i] == passengerName) {
+                passengerArray[i] = undefined;
+            } else if (i == passengerArray.length -1) {
+              console.log("Passenger not found!");
+            }
+        }
+    }
+    return passengerArray;
+}
+deletePassenger("Bethy Sevans", passengerList);
+console.log(passengerList);
+
+addPassenger("Jimothy Churchington", passengerList);
+console.log(passengerList);
+deletePassenger("Bethy Sevans", passengerList);
