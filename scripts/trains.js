@@ -87,3 +87,20 @@ function countE() {
   }
 }
 countE();
+
+
+//arrays
+var passengers = ["Breadley Sevens", "Olivia Snake", "Jimothy Klein", "Justin Kidding", "Marina Fey"];
+console.log(passengers.length);
+passengers.pop();
+console.log(passengers);
+passengers.push("Samwise Gimcoucho");
+console.log(passengers);
+
+
+var comboArray1 = ["one", "fish", 2, "fish"];
+
+var poisson = "fish";
+var comboArray2 = ["red", poisson, "Blue", poisson];
+console.log(comboArray2);
+console.log(poisson);
