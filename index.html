@@ -3,9 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>JavaScript Express</title>
-    <script src="scripts/trains.js"></script>
+
   </head>
   <body>
     <h1>JavaScript Express!</h1>
+    <form class="customer" action="index.html" method="post">
+      <p>I am a...</p>
+      <select onchange="customerType()" id="customerForm" name="customer">
+        <option value="newCustomer">New Customer</option>
+        <option value="returnCustomer">Returning Customer</option>
+      </select>
+    </form>
+    <script src="scripts/jquery-3.2.1.min.js"></script>
+    <script src="scripts/trains.js"></script>
   </body>
 </html>

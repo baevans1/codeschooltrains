@@ -169,3 +169,34 @@ console.log(passengerList);
 addPassenger("Jimothy Churchington", passengerList);
 console.log(passengerList);
 deletePassenger("Bethy Sevans", passengerList);
+
+
+//function expressions and anonymous functions
+
+var diff = function (a, b) {
+  return a*a - b*b;
+}
+console.log(diff(4,2));
+console.log(diff);
+// var newCustomer = false;
+var greeting;
+var selection = $('#customerForm').val();
+
+  if( selection == 'newCustomer'){
+    greeting = function () {
+      alert("Thanks for visiting the Badlands!\n" +
+            "We hope your stay is...better than most.");
+      }
+  } else {
+    greeting = function () {
+      alert("Thanks for visiting the Badlands!\n" +
+            "Guess they aren't so bad huh?");
+        }
+  }
+
+
+closeTerminal(greeting);
+
+function closeTerminal (message) {
+  message();
+}
