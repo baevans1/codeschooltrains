@@ -200,3 +200,11 @@ closeTerminal(greeting);
 function closeTerminal (message) {
   message();
 }
+
+//map method and function expressions
+console.log(numberList);
+var results = numberList.map(function (arrayCell) {
+              return arrayCell * 2;
+            }
+);
+console.log(results);
