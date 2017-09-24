@@ -208,3 +208,43 @@ var results = numberList.map(function (arrayCell) {
             }
 );
 console.log(results);
+
+
+//returning functions and immediate invocation
+var parkRides = [["Birch Bumpers", 40],
+                 ["Pines Plunge", 55],
+                 ["Cedar Coaster", 20],
+                 ["Fir-ris Wheel", 90]
+];
+var fastPassQueue = ["Cedar Coaster",
+                      "Pines Plunge",
+                      "Birch Bumpers",
+                      "Pines Plunge"
+                      ];
+// fastPassQueue.push("Pines plunge");
+// fastPassQueue.shift();
+// console.log(fastPassQueue.length);
+// var firstFastPass = fastPassQueue.shift();
+// console.log(firstFastPass);
+function buildTicket (allRides, passRides, pick) {
+      if(passRides[0] == pick) {
+        var pass = passRides.shift();
+        return function () {alert("Quick! You've got a Fast Pass to " + pass + "!");
+                };
+      } else {
+        for (var i = 0; i < allRides.length; i++) {
+          if (allRides[i][0] == pick) {
+            return function () {alert("A ticket is printing for " + pick + "!\n" +
+                      "Your wait time is about " + allRides[i][1] + " minutes.");
+                  }
+          }
+        }
+      }
+}
+var wantsRide = "Cedar Coaster";
+var ticket = buildTicket(parkRides, fastPassQueue, wantsRide);
+ticket();
+
+//immediate invocation
+wantsRide = "Pines Plunge";
+buildTicket(parkRides, fastPassQueue, wantsRide)();
