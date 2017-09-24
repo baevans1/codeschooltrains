@@ -248,3 +248,28 @@ ticket();
 //immediate invocation
 wantsRide = "Pines Plunge";
 buildTicket(parkRides, fastPassQueue, wantsRide)();
+
+//closures
+//returning a functiong from a function, complete
+//with variables from an external scope is a closure
+
+function testClosure(){
+  var x= 4;
+  function closeX() {
+    return x;
+  }
+  return closeX;
+}
+var checkLocalX = testClosure();
+
+function buildCoveTicketMaker(transport) {
+    return function (name) {
+      alert("Here is your transportation ticket via the " + transport + ".\n"
+      + "Welcome to the Cold Closures Cove, " + name + "!");
+    }
+}
+var getSubmarineTicket = buildCoveTicketMaker("Submarine");
+var getBattleshipTicket = buildCoveTicketMaker("Battleship");
+var getGiantSeagullTicket = buildCoveTicketMaker("Giant Seagull");
+getGiantSeagullTicket("Jimmy Choo");
+getBattleshipTicket("Bevan");
