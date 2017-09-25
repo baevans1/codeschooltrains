@@ -263,9 +263,12 @@ function testClosure(){
 var checkLocalX = testClosure();
 
 function buildCoveTicketMaker(transport) {
+    var passengerNumber = 0;
     return function (name) {
+      passengerNumber++;
       alert("Here is your transportation ticket via the " + transport + ".\n"
-      + "Welcome to the Cold Closures Cove, " + name + "!");
+      + "Welcome to the Cold Closures Cove, " + name + "!\n" +
+      "You are passenger #" + passengerNumber + ".");
     }
 }
 var getSubmarineTicket = buildCoveTicketMaker("Submarine");
@@ -273,3 +276,61 @@ var getBattleshipTicket = buildCoveTicketMaker("Battleship");
 var getGiantSeagullTicket = buildCoveTicketMaker("Giant Seagull");
 getGiantSeagullTicket("Jimmy Choo");
 getBattleshipTicket("Bevan");
+
+
+
+
+function mystery(input) {
+  var secret = 4;
+  input += 2;
+  function mystery2(multiplier) {
+    multiplier *= input;
+    return secret * multiplier;
+  }
+  return mystery2;
+}
+
+function mystery3(param) {
+  function mystery4(bonus) {
+    return param(6) + bonus;
+  }
+  return mystery4;
+}
+
+var hidden = mystery(3);
+var jumble = mystery3(hidden);
+var result = jumble(2);
+console.log(result);
+getBattleshipTicket("Lip Gallagher");
+
+
+function assignTorpedo (name, passengerArray) {
+
+  for (var i = 0; i < passengerArray.length; i++) {
+    if (passengerArray[i] == name) {
+      return function () {
+        alert("Ahoy, " + name + "!\n" +
+              "Man your post at Torpedo #" + (i+1) + "!");
+      };
+    }
+  }
+  return torpedoAssignment;
+}
+var subPassengers = ["Beth", "Lip", "Bread", "Snake", "Don", "Angelove", "Bryan"];
+var giveAssignment = assignTorpedo("Lip", subPassengers);
+giveAssignment();
+
+function makeTorpedoAssigner(passengerArray) {
+    return function (name) {
+      for (var i = 0; i < passengerArray.length; i++) {
+        if (passengerArray[i]==name) {
+          alert("Ahoy, " + name + "!\n" +
+          "Man your post at Torpedo #" + (i+1) + "!");
+
+        }
+      }
+    };
+}
+
+var getTorpedoFor = makeTorpedoAssigner(subPassengers);
+getTorpedoFor("Snake");
