@@ -360,3 +360,46 @@ var listOfTargets = ["icicle bat", "snow yeti",
 var getTargetFor = makeTargetAssigner(listOfSharks,
                                       listOfTargets);
 getTargetFor("Ice Teeth");
+
+
+var ar = [1, 2, 3, 4, 10, 11];
+function simpleArraySum(n, ar) {
+    // Complete this function
+    for (var i=0; i< n; i++){
+        var sum = 0;
+        sum += ar[i];
+    }
+    return sum;
+}
+//hoisting
+function capacityStatus (numPassengers, capacity) {
+  var noSeats = function () {
+    alert("No seats left!");
+    return false;
+  }
+  var seatsAvail = function() {
+    alert("There are " +(capacity - numPassengers) + " seats left!");
+    return true;
+  }
+    if (numPassengers == capacity) {
+      noSeats();
+    } else {
+      seatsAvail();
+    }
+}
+//OR
+function capacityStatus (numPassengers, capacity) {
+    if (numPassengers == capacity) {
+      noSeats();
+    } else {
+      seatsAvail();
+    }
+    function noSeats () {
+      alert("No seats left!");
+      return false;
+    }
+    function seatsAvail () {
+      alert("There are " +(capacity - numPassengers) + " seats left!");
+      return true;
+    }
+}
