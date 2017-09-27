@@ -403,3 +403,77 @@ function capacityStatus (numPassengers, capacity) {
       return true;
     }
 }
+
+function thisIsWeird() {
+var result;
+  // function secret() {
+  //   var unused3;
+  // }
+  //
+  // function secret() {
+  //   var unused1;
+  // }
+  function secret() {
+    var unused2;
+  }
+  // The following line of code assigns a
+  // secret function to the variable result.
+  result = secret;
+
+  return result;
+}
+//OBJECTS
+var book = {title: "Harry Potter and the Sorcerer's Stone",
+            author: "J.K. Rowling",
+            publisher: "Scholastic",
+            numChapters: 24,
+            numPages: 345,
+            illustrator: "Person McGee"
+            };
+var booksArray = ["Harry Potter", "The Hobbit", "The Hunger Games"];
+var myBox= {height: 6,
+            width: 8,
+            length: 10,
+            volume: 480,
+            material: "cardboard",
+            contents: booksArray
+        };
+myBox.width;
+//--> 8
+myBox.material;
+//--> "cardboard"
+myBox.contents;
+//--> booksArray is returned
+myBox.width = 12;
+console.log(myBox.width);
+myBox.volume = myBox.length * myBox.width * myBox.height;
+console.log(myBox.volume);
+myBox.contents.push("On The Road");
+myBox.weight = 24;
+myBox.destination1 = "Orlando";
+myBox.destination2 = "Miami";
+console.log(myBox["material"]);
+myBox["destination2"];
+//-->"Miami"
+//make properties this way trainsOperational
+myBox["# of stops"] = 2;
+// console.log(myBox."# of stops"); //bad returns error
+console.log(myBox["# of stops"]);
+//functions can go in brackets
+for (var i = 1; i <= myBox["# of stops"]; i++) {
+  console.log( myBox["destination" + i ]);
+};
+delete myBox.contents;
+//always returns true
+console.log(booksArray);
+myBox["# of Books"] = 0;
+function addBook (box, name, writer) {
+  box["# of Books"]++;
+  box["book" + box["# of Books"]] = {title: name, author: writer};
+}
+addBook(myBox,"Great Expectations", "Charles Dickens");
+addBook(myBox,"On the Road", "Jack Keroac");
+addBook(myBox,"Peter Pan", "J. M. Barrie");
+addBook(myBox,"The Remains of the Day", "Kazuo Ishiguro");
+console.log(myBox.book2.title);
+console.log(myBox["book4"]["author"]);
