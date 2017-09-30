@@ -611,3 +611,95 @@ var res7 = undefined || "";
 //neuther are true so it takes last value
 console.log(res6);
 console.log(res7);
+
+//logical operations &&
+//&& takes the rightmost truth or first false
+var res8 = undefined && 42;
+//returns undefined 42 is not examined
+var res9 = 0 && ["sweet", "tangy"];
+//returns 0
+var res10 = "" && {type: "ring", stone: "diamond"};
+//returns ""
+var res11 = "King" && "Arthur";
+//returns arthur the last truth
+var res12 = "Arthur" && "King";
+//returns king
+var res13 = undefined && "";
+//returns undefined bc short circuit
+var res14 = "" && undefined;
+//returns "" bc short circuit
+//and is useful in contingent assignments
+
+armory.retreiveSword = function(request) {
+      return (this.swords.indexOf(request) >= 0) ?
+      this.swords.splice(this.swords.indexOf(request), 1)[0] :
+      alert("No " + request);
+};
+//will return -1 if it doesn't exist
+var armoryIsOpen = true;
+var isKnight = true;
+// var weapon = armoryIsOpen && isKnight && armory.retreiveSword("Katana");
+
+var makeup = ["Mascara", "Eyeliner", "Blush", "Foundation"];
+makeup.splice(2,2);
+//starts at index 2 removes 2 items
+//returns ["Blush", "Foundation"]  their own array
+
+//switch block
+function Knight (name, regiment) {
+  this.name = name;
+  this.regiment = regiment;
+  switch (regiment) {
+    case 1:
+      this.weapon = "Broadsword";
+      break;
+    case 2:
+      this.weapon = "Claymore";
+      break;
+    case 3:
+      this.weapon = "Longsword";
+      break;
+
+    case 5:
+      this.weapon = "War Haven";
+      break;
+    case 6:
+      this.weapon = "Batte Axe";
+      break;
+    case 4:
+    case 7:
+    //fallthrough will apply
+    case 8:
+      this.weapon = "Morning Star";
+      break;
+    case "King":
+      this.weapon  = "Excalibur";
+      break;
+    default:
+        alert(name + " has an incorrect regiment. No weapon assigned!");
+  }
+}
+var soldier = new Knight("Richard", 4);
+console.log(soldier.weapon);
+var king = new Knight("Arthur", "King");
+console.log(king.weapon);
+var soldier3 = new Knight("Jerome", 12);
+
+//hierarchy of the switch block
+function ceremonialDagger(knight, rank) {
+  this.length = 8;
+  this.owner = knight;
+  switch(rank){
+    case "King": this.diamonds = 1;
+    case "High Constable": this.amethyst = 2;
+    case "Field Marshal": this.sapphires = 4;
+    case "Captain": this.emeralds = 1;
+    case "Knight" : this.rubies = 6;
+  }
+}
+var knightsDagger = new ceremonialDagger("Jimbo", "Knight");
+console.log(knightsDagger);
+var marshalDagger = new ceremonialDagger("temmy", "Field Marshal");
+console.log(marshalDagger);
+var kingDagger = new ceremonialDagger("Siron", "King");
+console.log(kingDagger);
