@@ -575,5 +575,39 @@ isArthur && isKing ? (weapon ="Excalibur", helmet = "Goosewhite")
 
 isArthur && isKing ? (weapon ="Excalibur", helmet = "Goosewhite")
                                             :
-                                            isArcher ? (weapon = "Longbow", helmet  = "Mail Helm")
-                                            (weapon ="Longsword", helmet = "Iron Helm");
+                                            isArcher ? (weapon = "Longbow", helmet  = "Mail Helm") :
+                                            (weapon ="Longsword", helmet = "Iron Helm")
+var armory = { addSword: function (sword) {
+                this.swords = this.swords ? this.swords : [];
+                this.swords.push(sword);
+              }
+        };
+var armory2 = { addSword: function (sword) {
+              this.swords = this.swords || [];
+              this.swords.push(sword);
+              }
+            };
+
+armory2.addSword("Excalibur");
+console.log(armory2.swords);
+armory2.addSword("Katana");
+console.log(armory2.swords);
+armory2.addSword("Claymore");
+armory2.addSword("Scimitar");
+console.log(armory2.swords);
+var res1 = undefined || 42;
+var res2 = 0 ||['sweet', 'tangy'];
+var res3 = "" || {type: "ring", stone: "diamond"};
+console.log(res1);
+console.log(res2);
+console.log(res3);
+//logical operations veryfirst not false value will be accepted
+var res4 = "King"|| "Arthur";
+var res5 = "Arthur"|| "King";
+console.log(res4);
+console.log(res5);
+var res6 = ""|| undefined;
+var res7 = undefined || "";
+//neuther are true so it takes last value
+console.log(res6);
+console.log(res7);
